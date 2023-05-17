@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tuluan.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="c%C3%A2u-1">Câu 1</h1>
+<p>Nên sử dụng kỹ thuật amplicon metagenomics. Vì để xác định thành phần hệ vi sinh nấm có thể sử dụng các vùng gene ITS (<em>nucler ribosomal internal transcribed spacer</em>), đây là vùng gene bảo tồn ở nấm giúp phân biệt nấm với các loài khác và cũng đủ phân kỳ để định danh, nghiên cứu về phat sinh loài ở nấm. Bên cạnh đó giúp giảm tiêu hao tài nguyên giải trình tự.</p>
+<h1 id="c%C3%A2u-2">Câu 2</h1>
+<h2 id="qiime2">QIIME2</h2>
+<p>Đây là một bộ dụng cụ được tích hợp sẵn các công cụ cần thiết để phân tích amplicon sequencing.</p>
+<p><img src="https://docs.qiime2.org/2023.2/_images/overview.png" alt="">
+Dữ liệu đầu vào gồm có 3 thành phần:</p>
+<ul>
+<li>Sample Data: Bộ dữ liệu được thu thập các đặc tính của các đối tượng mà có thể liên quan đến các câu hỏi sinh học khi nghiên cứu metagenomic (như tuổi, nơi lấy mẫu, kháng sinh,...)</li>
+<li>FastQ file: Dữ liệu giải trình tự</li>
+<li>Barcode: Dữ liệu về mối liên hệ giữa mẫu và trình tự được giải thông qua barcode (giúp xác định trình tự nào của sample nào).</li>
+</ul>
+<p>Dữ liệu đầu vào sẽ được Demultiplex tức trình tự sẽ được link với Sample Data và lưu ở từng file fastq khác nhau tương ứng với các barcode. Sau quá trình này ta sẽ có 1 file Sample Data ban đầu và các file fastq tương ứng với các barcode.</p>
+<p>Sau đó trình tự được lọc nhiễu, loại bỏ các bias của phản ứng PCR xác định các OTU hoặc ASV đại diện cho sự hiện diện của đối tượng trong mẫu. Sau quá trình này thu được Feature Table và Các trình tự. Các trình tự có thể dùng phân tích phát sinh loài, xác định các loài trong mẫu. Bên cạnh đó có thể sử dụng Feature Table để phân tích thêm Diversity $\alpha$ và $\beta$,...</p>
+<p><img src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.15752-9/344680192_252335350676523_2726603943882926596_n.png?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_ohc=AzKMmyZ8kmgAX8aJguU&amp;_nc_ht=scontent.fsgn5-5.fna&amp;oh=03_AdR0NsNI2TGSDFi-amSGLZp1NAov_NvgphecCm62GitiNw&amp;oe=648C0CC6" alt=""></p>
+<h3 id="%C6%B0u-%C4%91i%E1%BB%83m"><em>Ưu điểm</em></h3>
+<ul>
+<li>Công cụ linh hoạt, có thể tùy pipline thay đổi linh hoạt dựa trên input và câu hỏi sinh học.</li>
+<li>Có cộng đồng phân tích đông đảo, có thể trao đổi thông tin.</li>
+<li>Mã nguồn mở, miễn phí, dễ dàng tiếp cận, mở rộng.</li>
+<li>Kiểm soát pipeline, nguồn trích dẫn được lưu trong artifact data.</li>
+</ul>
+<h3 id="nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m"><em>Nhược điểm</em></h3>
+<ul>
+<li>Có những thuật toán thống kê phức tạp, đòi hỏi kiến thức tối thiểu về toán</li>
+<li>Khi có bug, cần trao đồi cần phải chờ phản hồi.</li>
+</ul>
+<h2 id="usearch-vsearch">USEARCH-VSEARCH</h2>
+<p><img src="https://scontent.fsgn5-12.fna.fbcdn.net/v/t1.15752-9/344668763_1161796954498196_518117829784371646_n.png?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_ohc=XLhSlZPMmukAX8uKHMK&amp;_nc_ht=scontent.fsgn5-12.fna&amp;oh=03_AdQuyK9xyNkL2Tn4vjetjM8bvQabO7VkC396ELCdlQ6nqQ&amp;oe=648C07E0" alt=""></p>
+<p>Cũng tương tự như QUIIME, với USEARCH, mục tiêu đầu hướng tói cũng là chuyển trình tự thô thành Feature Table. Dữ liệu cũng sẽ được kết hợp với nhau và chọn các trình tự đại diện nhằm giảm sự bias về số lượng mẫu trong phân tích. Với USEARCH sẽ tạo thành các OTU bằng các nhóm các trình tự tương đồng, quy về OTU, và các bước downstream có thể phân tích tương tự như QIIME.</p>
+<p><img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t1.15752-9/344668767_1254000772155956_909791682515151533_n.png?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_ohc=jPtYQk1ethgAX8QwvbP&amp;_nc_ht=scontent.fsgn8-2.fna&amp;oh=03_AdTHEih-ZTAEbQWeE1y_ra4suFEFedTBTJyeWo96fmCnWw&amp;oe=648BEC2A" alt=""></p>
+<h3 id="%C6%B0u-%C4%91i%E1%BB%83m"><em>Ưu điểm</em></h3>
+<ul>
+<li>Được phát triển trước QIIME</li>
+<li>Miễn phí, mã nguồn mở</li>
+<li>Linh động, có thể tùy chỉnh</li>
+</ul>
+<h3 id="nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m"><em>Nhược điểm</em></h3>
+<ul>
+<li>
+<p>Cộng đồng nghiên cứu ít (công bố 78 bài báo liên quan trong khi QIIME là 231 bài báo)</p>
+</li>
+<li>
+<p>Giao diện trang chủ đơn giản, ít thu hút.</p>
+<pre><code> Theo em công cụ QIIME thích hợp hơn với công ty hơn nhờ những tính năng vượt trội của đó, có tiềm năng phát triển hơn trong tương lai. Công cụ linh hoạt dễ phân công chia việc, tạo pipline với workflow, documment chi tiết, cộng động sử dụng đông đảo.
+</code></pre>
+</li>
+</ul>
+<h1 id="c%C3%A2u-3">Câu 3</h1>
+<p>Trong các artifact data của QIIME2 thực chất là các file zip. Dữ liệu bên trong dễ dàng được unzip sử  để sử dụng, lập trình thêm các công cụ bổ sung bằng python, bash, nextflow,... Ngoài ra phần mềm còn hỗ trợ tương tác trực tiếp thông qua python bằng Jupyter Notebook hoặc Galaxy Workflow. Ở bước nghiên cứu Diversity có thể phát triển thêm các công cụ trực quan hóa dữ liệu có thể webapp, giúp dễ dàng truy cập và sử dụng.</p>
+<h1 id="c%C3%A2u-4">Câu 4</h1>
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNo1UDFuhDAQ_Iq1NSBjMGAXaXJdlCpXRIEUFjYHCmAERglBPOaSF6S9lPeS-0nsO6XZnRnNzkqzQqmlAg5Vq9_LWowG7XdFP-j8ob6cvjWazkfzaoUwfz5_LUhefn_6A-q0nFvldJLf16p8Qy7G8SjfX05HjYzW7WQFl-X7d0PoBnEHDkTgQafGTjTS_l6LHqECTK06VQC3UKpKzK0poOg3axWz0U9LXwI346w8mAcpjNo14jCKDngl2smqg-hftO7-TZYCX-EDOCFpkIZhRnBCszhKKfVgAe7jgCYszgjJIsYwThjdPPi8RuCAhTTGlBGGs8yuxAMlG6PHx1tf19q2P-pvaXs"><img src="https://mermaid.ink/img/pako:eNo1UDFuhDAQ_Iq1NSBjMGAXaXJdlCpXRIEUFjYHCmAERglBPOaSF6S9lPeS-0nsO6XZnRnNzkqzQqmlAg5Vq9_LWowG7XdFP-j8ob6cvjWazkfzaoUwfz5_LUhefn_6A-q0nFvldJLf16p8Qy7G8SjfX05HjYzW7WQFl-X7d0PoBnEHDkTgQafGTjTS_l6LHqECTK06VQC3UKpKzK0poOg3axWz0U9LXwI346w8mAcpjNo14jCKDngl2smqg-hftO7-TZYCX-EDOCFpkIZhRnBCszhKKfVgAe7jgCYszgjJIsYwThjdPPi8RuCAhTTGlBGGs8yuxAMlG6PHx1tf19q2P-pvaXs?type=png" alt=""></a></p>
+<p>Đầu tiên cần khảo sát thị trường về nhu cầu visualize dữ liệu. Xem những hướng visualize nào đã và đang phát triển, những hướng vẫn còn chưa phát triển. Thu thập, Xây dựng dần các module hỗ trợ trực quan hóa. Check tính năng và sự chính xác của các module. Sau đó lắp ráp các module tạo thành các công cụ web app giúp người dùng dễ dàng truy cập và sử dụng.</p>
+<p>Các tiêu chí đánh giá:</p>
+<ul>
+<li>Câu hỏi sinh học có tính lặp lại ở các khách hàng hay không?</li>
+<li>Đã có công cụ đã phát triển chưa? Nếu có công cụ đó đã tối ưu chưa?</li>
+<li>Ứng dụng đã xây dựng có lượt sử dụng bao nhiêu? Số lượng bài báo công bố liên quan?</li>
+</ul>
+
+</body>
+</html>

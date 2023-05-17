@@ -1,0 +1,8 @@
+name: enviroment
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::minimap2=2.20
+  - bioconda::samtools=1.16
+  - bioconda::shovill

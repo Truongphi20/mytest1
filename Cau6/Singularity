@@ -1,0 +1,12 @@
+Bootstrap: docker
+
+From: /home/newstaff1/miniconda3
+
+%files
+	enviroment.yml
+	
+%post 
+	/home/newstaff1/miniconda3/condabin/conda env create -f enviroment.yml
+	
+%runscript
+	exec /home/newstaff1/miniconda3/envs/$(head -n 1 enviroment.yml | cut -f 2 -d ' ')/bin/"$@"
