@@ -11,3 +11,5 @@ with open(filename, 'r') as f:
 
 print('List of length:')
 print(seq_lengths)
+
+#Cong: What is the meaning of if ```len(line)==0``` ??
