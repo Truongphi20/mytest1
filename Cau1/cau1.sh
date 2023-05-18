@@ -15,3 +15,7 @@ do
 done < ${access_file}
 
 echo "Number of reads: "$number
+
+#Cong: Because this is fastq file, you can count the number of sequences in 2 different ways, easier and quicker than what did you done above
+## 1. Count the number of lines, then divide it by four
+## 2. Count the number lines started with the "@" sign
