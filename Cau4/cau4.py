@@ -25,3 +25,10 @@ for char in seqs:
 seq_com_rev = seq_com[::-1]
 print('Reverse complement sequences: ')
 print(seq_com_rev)
+
+# What is the rstrip action do to the line ?
+"""
+Write a Python script to identify all the reverse complement sequences in a
+FASTA file. Assume that the file is named "sample.fasta" and is located in the
+current working directory.
+"""
