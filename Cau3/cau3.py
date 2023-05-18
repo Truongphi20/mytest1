@@ -23,3 +23,10 @@ length_seqs = list(map(lambda x: len(x),sequence_list))
 average = sum(length_seqs)/len(length_seqs)
 print("Average read length: ")
 print(average)
+
+# This code is good, however, I expect you can also print each sequence with format: `seqid: length` before calculate the average
+"""
+Write a Bash/Python script to calculate the average read length of a FASTQ file.
+Assume that the file is named "sample.fastq" and is located in the current
+working directory.
+"""
