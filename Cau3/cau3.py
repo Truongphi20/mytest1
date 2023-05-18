@@ -23,3 +23,5 @@ length_seqs = list(map(lambda x: len(x),sequence_list))
 average = sum(length_seqs)/len(length_seqs)
 print("Average read length: ")
 print(average)
+
+#Cong: There are many shorter ways, think about it. Some inessential variables such as qc_list or id_list should be excluded in order to increase the pace
