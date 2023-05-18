@@ -15,3 +15,5 @@ do
 done < ${access_file}
 
 echo "Number of reads: "$number
+
+# You can only need to run `grep @ sample.fastq | wc -l`
