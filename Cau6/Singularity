@@ -1,12 +1,15 @@
 Bootstrap: docker
 
-From: /home/newstaff1/miniconda3
+From: /home/newstaff1/miniconda3   ---> This is big error, When you use bootstrap docker, you must use From: <online_docker_image>. This often: ubuntu:20.04
+# In this case, you want to run conda, but i recommend a faster tool: micromamba, so the syntax is From: mambaorg/micromamba
 
 %files
 	enviroment.yml
 	
 %post 
 	/home/newstaff1/miniconda3/condabin/conda env create -f enviroment.yml
+# This case: micromamba env create -f environment.yml
 	
 %runscript
 	exec /home/newstaff1/miniconda3/envs/$(head -n 1 enviroment.yml | cut -f 2 -d ' ')/bin/"$@"
+# No need for this runscript
