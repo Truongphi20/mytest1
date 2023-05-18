@@ -11,3 +11,10 @@ with open(filename, 'r') as f:
 
 print('List of length:')
 print(seq_lengths)
+
+# You should print the seqid along with the length
+"""
+Write a Python script to extract the sequence length of each record in a FASTA
+file. Assume that the file is named "sample.fasta" and is located in the current
+working directory.
+"""
