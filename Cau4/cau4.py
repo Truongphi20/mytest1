@@ -25,3 +25,5 @@ for char in seqs:
 seq_com_rev = seq_com[::-1]
 print('Reverse complement sequences: ')
 print(seq_com_rev)
+
+#Cong: If there are more than one sequence provided in a fasta file, your script will generate the false result. Because the code line: "seqs = ''.join(seqs_list)"
